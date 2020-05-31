@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <!-- 外部引用 -->
+  <!-- 引用jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <!-- 引用外部css -->
+  <link rel="stylesheet" type="text/css" href="draw.css">
+  <!-- 引用外部js -->
+  <script type="text/javascript" src="draw.js"></script>
+
+  <!-- 內部使用js -->
+  <!-- <script language="javascript">
+    alert('測試文字');
+    alert('測試文字第一行<br>測試文字第二行');
+    alert('測試文字第一行\n測試文字第二行');
+  </script> -->
+</head>
+
+<body>
+  <div id="input">
+    <label>抽出數量: <input type="number" name="number" value="2" /></label>
+    <label><input type="checkbox" name="repeatable" /> 允許重複資料 </label>
+    <div><textarea></textarea></div>
+    <div class="div-button">
+      <button type="button" class="default">插入預設資料</button>
+      <button type="button" class="draw">抽籤</button>
+
+      <!-- <button type="button" class="test" onclick="myFun()">請點擊</button> -->
+    </div>
+  </div>
+  <div id="result"></div>
+  <div style="clear:both"></div>
+
+</body>
+
+
+
+
+
+</html>
