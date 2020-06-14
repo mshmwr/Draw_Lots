@@ -44,13 +44,15 @@ $(function () {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    var _result_index = [];
+    var _result_list = [];
+    var _index = 0;
     _result.append('<div>抽籤結果(共' + _number + '位)：</div>');
     for (var _r = 0; _r < _number; _r++) {
       var _random_int = _getRandomInt(0, _list.length - 1);
-      if ($.inArray(_random_int, _result_index) === -1) {
-        _result_index.push(_random_int);
-        _result.append('<div>' + _list[_random_int] + '</div>');
+      if ($.inArray(_random_int, _result_list) === -1) {
+        _index++;
+        _result_list.push(_random_int);
+        _result.append('<div>' + _index + ', ' + _list[_random_int] + '</div>');
       }
       else {
         _r--;
