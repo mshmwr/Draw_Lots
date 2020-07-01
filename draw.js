@@ -10,8 +10,9 @@ $(function () {
   $("#input button.draw").click(function () {
     // alert('測試文字');
     var _lines = $.trim($("#input textarea").val()).split("\n");
-    var _repeatable = ($('#input [name="repeatable"]').length === 1);
-    var _number = parseInt($('#input [name="number"]').val());
+    var _repeatable = ($('#input [name="repeatable"]').prop('checked'));
+    var _itemNum = ($('#input [name="itemNum"]').prop('checked')); //項目編號
+    var _number = parseInt($('#input [name="number"]').val()); //抽出數量
     var _result = $("#result").empty();
     if (isNaN(_number)) {
       //alert("抽出數量必須為數字");
@@ -52,7 +53,13 @@ $(function () {
       if ($.inArray(_random_int, _result_list) === -1) {
         _index++;
         _result_list.push(_random_int);
-        _result.append('<div>' + _index + ', ' + _list[_random_int] + '</div>');
+
+        var content = '';
+        if (_itemNum === true) {
+          content = content + (_index + ', ');
+        }
+        content = content + (_list[_random_int])
+        _result.append('<div>' + content + '</div >');
       }
       else {
         _r--;
