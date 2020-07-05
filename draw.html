@@ -20,8 +20,28 @@
 <body>
   <div id="input">
     <label>抽出數量: <input type="number" name="number" value="2" /></label>
-    <label><input type="checkbox" name="repeatable" /> 允許重複資料 </label>
+    <!-- 
+          checkbox:
+            基本功能:
+    -->
+
     <label><input type="checkbox" name="itemNum" /> 加入編號 </label>
+    <!-- TODO: "輸入數字範圍" 和 "輸入自訂內容" 互斥 -->
+
+    <!-- 如果選擇輸入數字範圍 -->
+    <label><input type="checkbox" name="rangeInput" id="rangeInput" /> 輸入數字範圍 </label>
+    <div>
+      <input type="number" name="rangeInputMin" required value="1" /> ~
+      <input type="number" name="rangeInputMax" required value="5" />
+    </div>
+    <label><input type="checkbox" name="userInput" id="userInput" /> 輸入自訂內容 </label>
+    <!-- 如果選擇輸入自訂內容:
+      出現下方區塊
+    
+    
+    -->
+
+    <label><input type="checkbox" name="repeatable" /> 允許重複資料 </label>
     <div><textarea></textarea></div>
     <div class="div-button">
       <button type="button" class="default">插入預設資料</button>

@@ -6,25 +6,57 @@ function myFun() {
 
 
 $(function () {
+  //checkbox
+  var _repeatable = ($('#input [name="repeatable"]').prop('checked')); //允許重複資料
+  var _itemNum = ($('#input [name="itemNum"]').prop('checked')); //項目編號
+  var _rangeInput = ($('#input [name="rangeInput"]').prop('checked')); //輸入數字範圍
+  var _userInput = ($('#input [name="userInput"]').prop('checked')); //輸入自訂項目
+
+  //variable
+  var _number = parseInt($('#input [name="number"]').val()); //抽出數量
+  var _rangeInputMax = parseInt($('#input [name="rangeInputMax"]').val()); //輸入數字範圍Max
+  var _rangeInputMin = parseInt($('#input [name="rangeInputMin"]').val()); //輸入數字範圍Min
+
+  $("#rangeInput").click(function () { //選擇"輸入數字範圍"
+    if ($('#input [name="rangeInput"]').prop('checked')) { //_rangeInput) {
+      alert('輸入數字範圍按鈕被選擇');
+      $('#input [name="userInput"]').prop('checked', false);
+      if (_rangeInputMax < _rangeInputMin)
+        _result.html("輸入範圍錯誤");
+    }
+  })
+
+  $("#userInput").click(function () { //選擇"輸入自訂項目"
+    if ($('#input [name="userInput"]').prop('checked')) {//_userInput) {
+      alert('輸入自訂項目按鈕被選擇');
+      $('#input [name="rangeInput"]').prop('checked', false);
+
+    }
+  })
 
   $("#input button.draw").click(function () {
     // alert('測試文字');
     var _lines = $.trim($("#input textarea").val()).split("\n");
-    var _repeatable = ($('#input [name="repeatable"]').prop('checked'));
-    var _itemNum = ($('#input [name="itemNum"]').prop('checked')); //項目編號
-    var _number = parseInt($('#input [name="number"]').val()); //抽出數量
+
+
     var _result = $("#result").empty();
     if (isNaN(_number)) {
       //alert("抽出數量必須為數字");
       _result.html("抽出數量必須為數字");
       return;
     }
-    if (_lines.length === 1 && _lines[0] === "") {
-      //alert("抽出數量必須為數字");
-      _result.html("必須輸入資料");
-      return;
-    }
 
+
+
+    if (_userInput) {
+      _rangeInput = false;
+      $('#input [name="rangeInput"]').prop('checked', _rangeInput);
+      if (_lines.length === 1 && _lines[0] === "") {
+        //alert("必須輸入資料");
+        _result.html("必須輸入資料");
+        return;
+      }
+    }
     var _list = [];
     for (var _i = 0; _i < _lines.length; _i++) {
       var _line = $.trim(_lines[_i]);
