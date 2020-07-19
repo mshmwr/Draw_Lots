@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="draw.css" />
     <!-- 引用外部js -->
     <script type="text/javascript" src="draw.js"></script>
+    <!-- 在針對要實作 RWD 的網頁中，HTML 的 head 部分必須設定 viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- 內部使用js -->
     <!-- <script language="javascript">
@@ -17,45 +19,94 @@
   </head>
 
   <body>
-    <div id="input">
-      <label>抽出數量: <input type="number" name="number" value="2" /></label>
-      <!-- 
-          checkbox:
-            基本功能:
-    -->
+    <div class="wrap">
+      <div class="col">
+        <div class="intro">
+          <!-- <p>關於這個網站</p> -->
+          <div class="content">
+            <p class="title">基本抽籤</p>
+            <p class="drawLotsIntro text-left">
+              基本抽籤功能
+            <ul class="text-left">
+              <li>輸入抽入數量</li>
+              　<li>加上項目編號</li>
+              　<li>輸入<b>數字範圍</b>或<b>自訂內容</b></li>
+            </ul>
+            </p>
+            <p class="postscript text-left">註：雖然有預設內容但基本上用不到唷(*^-^*)</p>
+          </div>
+        </div>
 
-      <label><input type="checkbox" name="itemNum" /> 加入編號 </label>
-      <!-- TODO: "輸入數字範圍" 和 "輸入自訂內容" 互斥 -->
+        <div class="intro" id="col">
+          <div class="content">
+            <p class="title">第二個區塊</p>
+            <p class="drawLotsIntro text-left">
+              測試RWD用
+              <br>
+              換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行測試換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行
+            </p>
+          </div>
+        </div>
 
-      <!-- 如果選擇輸入數字範圍 -->
-      <label
-        ><input type="checkbox" name="rangeInput" id="rangeInput" />
-        輸入數字範圍
-      </label>
-      <div>
-        <input type="number" name="rangeInputMin" required value="1" /> ~
-        <input type="number" name="rangeInputMax" required value="5" />
+        <div class="intro" id="col">
+          <div class="content">
+            <p class="title">第三個區塊</p>
+            <p class="drawLotsIntro text-left">
+              測試RWD用2
+              <br>
+              測試RWD用2
+              <br>
+              測試RWD用2
+              <br>
+              測試RWD用:換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行換行
+            </p>
+          </div>
+        </div>
       </div>
-      <label
-        ><input type="checkbox" name="userInput" id="userInput" /> 輸入自訂內容
-      </label>
-      <!-- 如果選擇輸入自訂內容:
-      出現下方區塊
-    
-    
-    -->
-      <div id="userInputBlock">
-        <label><input type="checkbox" name="repeatable" /> 允許重複資料 </label>
-        <textarea></textarea>
-      </div>
-      <div class="div-button">
-        <button type="button" class="default">插入預設資料</button>
-        <button type="button" class="draw">抽籤</button>
 
-        <!-- <button type="button" class="test" onclick="myFun()">請點擊</button> -->
+
+      <div class="col">
+        <div class="tools">
+          <div id="input">
+            <label>抽出數量: <input type="number" name="number" value="2" /></label>
+            <!-- 
+                              checkbox:
+                                基本功能:
+                          -->
+
+            <label><input type="checkbox" name="itemNum" /> 加入編號 </label>
+
+            <!-- 如果選擇輸入數字範圍 -->
+            <label><input type="checkbox" name="rangeInput" id="rangeInput" />
+              輸入數字範圍
+            </label>
+            <div>
+              <input type="number" name="rangeInputMin" required value="1" /> ~
+              <input type="number" name="rangeInputMax" required value="5" />
+            </div>
+            <label><input type="checkbox" name="userInput" id="userInput" /> 輸入自訂內容
+            </label>
+            <!-- 如果選擇輸入自訂內容:
+                              出現下方區塊
+                          -->
+            <div id="userInputBlock">
+              <label><input type="checkbox" name="repeatable" /> 允許重複資料 </label>
+              <textarea></textarea>
+            </div>
+            <div class="div-button">
+              <button type="button" class="default">插入預設資料</button>
+              <button type="button" class="draw">抽籤</button>
+
+              <!-- <button type="button" class="test" onclick="myFun()">請點擊</button> -->
+            </div>
+          </div>
+          <div id="result"></div>
+          <div style="clear: both;"></div>
+        </div>
       </div>
     </div>
-    <div id="result"></div>
-    <div style="clear: both;"></div>
+
+    
+  
   </body>
 </html>
